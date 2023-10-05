@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+<style>
+    .navbar {
+        background-color: red; /* Set the entire navbar background to red */
+        overflow: hidden;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    /* Style for the navigation buttons */
+    .nav-button {
+        border: none;
+        color: white; /* Button text color */
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+
+    /* Style for the navigation buttons on hover */
+    .nav-button:hover {
+        background-color: #777; /* Darker background color on hover */
+    }
+
+</style>
+<body>
+
+<!-- Navigation bar -->
+<div class="navbar">
+    <a class="nav-button" href="#" th:href="@{/home}">Home</a>
+    <a class="nav-button" href="#" th:href="@{/login}">Login</a>
+    <a class="nav-button" href="#" th:href="@{/}">Registration</a>
+</div>
+<h3> Welcome Page after successful Login</h3>
+<a th:href="@{/logout}" >LOGOUT</a>
+</body>
+</html>

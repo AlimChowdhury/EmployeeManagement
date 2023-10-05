@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>User Registration</title>
+</head>
+<style>
+    .navbar {
+        background-color: red; /* Set the entire navbar background to red */
+        overflow: hidden;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    /* Style for the navigation buttons */
+    .nav-button {
+        border: none;
+        color: white; /* Button text color */
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+
+    /* Style for the navigation buttons on hover */
+    .nav-button:hover {
+        background-color: #777; /* Darker background color on hover */
+    }
+
+</style>
+<body>
+
+<!-- Navigation bar -->
+<div class="navbar">
+    <a class="nav-button" href="#" th:href="@{/home}">Home</a>
+    <a class="nav-button" href="#" th:href="@{/login}">Login</a>
+    <a class="nav-button" href="#" th:href="@{/}">Registration</a>
+</div>
+<h3>User Registration</h3>
+<form action="saveUser" method="post">
+<pre>
+Name :    <input type="text" name="name"/>
+
+Email:    <input type="text" name="email"/>
+
+Password: <input type="password" name="password"/>
+
+Role(s): <input type="checkbox" name="roles" value="Admin"/>Admin
+         <input type="checkbox" name="roles" value="Manager"/>Manager
+ 	 <input type="checkbox" name="roles" value="HR"/>HR
+	 <input type="checkbox" name="roles" value="Employee"/>Employee
+<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    <input type="submit" value="Register"/>
+
+</pre>
+</form>
+<div th:text="${msg}"></div>
+</body>
+</html>

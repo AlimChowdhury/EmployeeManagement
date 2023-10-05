@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>HOME</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<style>
+    .navbar {
+        background-color: red; /* Set the entire navbar background to red */
+        overflow: hidden;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    /* Style for the navigation buttons */
+    .nav-button {
+        border: none;
+        color: white; /* Button text color */
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+
+    /* Style for the navigation buttons on hover */
+    .nav-button:hover {
+        background-color: #777; /* Darker background color on hover */
+    }
+
+</style>
+<body>
+
+<!-- Navigation bar -->
+<div class="navbar">
+    <a class="nav-button" href="#" th:href="@{/home}">Home</a>
+    <a class="nav-button" href="#" th:href="@{/login}">Login</a>
+    <a class="nav-button" href="#" th:href="@{/}">Registration</a>
+</div>
+
+<!-- Your page content goes here -->
+<div id="content">
+    <h1>Admin Page</h1>
+    <p>Welcome to Admin page.!!!.</p>
+</div>
+<div class="container my-2">
+    <h1>Users List</h1>
+
+    <a th:href="@{/showNewUserForm}" class="btn btn-primary btn-sm mb-3"> Add User </a>
+
+    <table  class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>User Name</th>
+            <th>User Email</th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${listUsers}">
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+            <td> <a th:href="@{/showFormForUpdate/{id}(id=${user.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteUser/{id}(id=${user.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+/* Basic styling for the navigation bar */
+.navbar {
+    background-color: red; /* Set the entire navbar background to red */
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Style for the navigation buttons */
+.nav-button {
+    border: none;
+    color: white; /* Button text color */
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+/* Style for the navigation buttons on hover */
+.nav-button:hover {
+    background-color: #777; /* Darker background color on hover */
+}
